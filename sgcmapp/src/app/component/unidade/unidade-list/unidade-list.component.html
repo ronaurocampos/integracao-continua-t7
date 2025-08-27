@@ -1,0 +1,40 @@
+<app-barra-comandos
+  (eventoBusca)="consultar($event)"
+  linkForm="/config/unidade-form"></app-barra-comandos>
+<table>
+  <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of registros; track item) {
+      <tr>
+        <td class="fit">{{ item.id }}</td>
+        <td>{{ item.nome }}</td>
+        <td>{{ item.endereco }}</td>
+        <td>
+          <a class="botao"
+            routerLink="/config/unidade-form"
+            [queryParams]="{id: item.id}">Editar</a>
+          <a class="botao excluir"
+            (click)="remover(item.id)">Excluir</a>
+        </td>
+      </tr>
+    }
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">
+        @if (registros.length > 0) {
+          <span>Total de registros: {{ registros.length }}</span>
+        } @else {
+          <span>Nenhum registro encontrado</span>
+        }
+      </td>
+    </tr>
+  </tfoot>
+</table>

@@ -1,0 +1,39 @@
+<header>
+  <div id="logo">
+    <img src="logo_branco.png" alt="Logo SGCM">
+    <span id="titulo">{{ title }}</span>
+  </div>
+  <div id="usuarioInfo">
+    <span>Usuário: Administrador (admin)</span>
+    <span>Papel: ADMIN</span>
+    <a href="javascript:void(0)"
+       class="botao">Logout</a>
+  </div>
+</header>
+<nav>
+  <ul>
+    <li><a routerLink="/agenda-list">Agenda</a></li>
+    <li><a routerLink="/atendimento">Atendimento</a></li>
+    <li><a routerLink="/paciente-list">Pacientes</a></li>
+    <li><a routerLink="/profissional-list">Profissionais</a></li>
+    <li><a routerLink="/convenio-list">Convênios</a></li>
+    <li id="dropdown">
+      <a href="javascript:void(0)">
+        Configurações
+        <span>&#9660;</span>
+      </a>
+      <div id="dropdown_menu">
+        <a routerLink="/config/unidade-list">Unidades</a>
+        <a routerLink="/config/especialidade-list">Especialidades</a>
+        <a routerLink="/config/usuario-list">Usuários</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<footer>
+  <span>SGCM - Sistema de Gerenciamento de Clínica Médica</span>
+  <span>Suporte técnico: (68) 5555-5555 | <a href="mailto:suporte.sgcm@ufac.br">suporte.sgcm&#64;ufac.br</a></span>
+</footer>

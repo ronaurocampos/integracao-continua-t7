@@ -1,0 +1,16 @@
+<div id="comandos">
+    <a [routerLink]="linkForm()"
+        class="botao"
+        id="add">
+        Adicionar
+    </a>
+    <div>
+        <input type="search"
+            name="busca"
+            id="busca"
+            placeholder="Digite para buscar"
+            #inputBusca="ngModel"
+            ngModel
+            (ngModelChange)="buscar(inputBusca.value)">
+    </div>
+</div>
