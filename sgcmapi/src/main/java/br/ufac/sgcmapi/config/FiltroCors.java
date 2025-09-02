@@ -14,12 +14,16 @@ public class FiltroCors {
     @Bean
     CorsFilter corsFilter() {
         var config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList("http://127.0.0.1:5500", "http://localhost:4200", "https://ronauro-sgcmapp.srv750236.hstgr.cloud"));
+        config.setAllowedOriginPatterns(Arrays.asList(
+            "http://127.0.0.1:5500",
+            "http://localhost:4200",
+            "https://ronauro-sgcmapp.srv750236.hstgr.cloud"
+        ));
         config.setAllowedMethods(Arrays.asList("*"));
         config.setAllowedHeaders(Arrays.asList("*"));
+        config.setAllowCredentials(true);
         var source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
-    
 }
